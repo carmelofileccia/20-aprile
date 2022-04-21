@@ -6,17 +6,24 @@ import './App.css';
 
 function App() {
   const [category, setCategory] = useState ("");
+  const [filtered, setFiltered]= useState("")
 
   const catSelection =(value) => {
     console.log(value);
     setCategory(value);
   }
+
+  const filSelection =(value) => {
+    console.log(value);
+    setFiltered(value);
+
+  }
   return (
     <main>
-      <Header />
+      <Header filSelection={filSelection}/>
       <div className="flex">
         <Sidebar catSelection={catSelection} />
-        <List category={category}/>
+        <List category={category} filtered={filtered}/>
       </div>
     </main>
   );

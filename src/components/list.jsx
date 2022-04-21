@@ -4,7 +4,7 @@ import { Product} from "./product";
 
 const mock = ["prodotto1", "prodotto2", "prodotto3"];
 
-export const List = ({category}) => {
+export const List = (props) => {
     const [source, setSource] = useState([]);
     const [products, setProducts] = useState(mock);
     const [isLoading, setLoading] = useState(true);
@@ -22,21 +22,31 @@ export const List = ({category}) => {
     useEffect(() => {
         getData();
     }, []);
-
+   
     useEffect(() => {
         
         const filtered = source.filter((product) => {
-            if (category === "everything") {
+            if (props.category === "everything") {
                 return products;
             } else {
-                return product.category === category;
+                return product.category === props.category;
             }
             });
             
         setProducts(filtered);
-        console.log("lacategoria è", category, filtered)
-    },[category]);
+        console.log("lacategoria è", props.category, filtered)
+    },[props.category]);
+
+    useEffect(() => {
+        console.log('ho cercato', props.filtered)
+        const filteredSearch = source.filter((product) => {
+            return product.title.toLowerCase().includes (props.filtered)
+         
+        });
         
+
+    }, [props.filtered]);
+    
     return (
         <section>
             <ul className="grid">

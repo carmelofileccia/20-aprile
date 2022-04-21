@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import {useState} from "react"
+import {Header} from "./components/header";
+import {Sidebar} from "./components/sidebar"
+import {List} from "./components/list";
 import './App.css';
 
 function App() {
+  const [category, setCategory] = useState ("");
+
+  const catSelection =(value) => {
+    console.log(value);
+    setCategory(value);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Header />
+      <div className="flex">
+        <Sidebar catSelection={catSelection} />
+        <List category={category}/>
+      </div>
+    </main>
   );
 }
 

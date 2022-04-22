@@ -44,6 +44,7 @@ export const List = (props) => {
         setProducts(filtered);
     }, [props.search]);
     
+    
     return (
         <section>
             <ul className="grid">

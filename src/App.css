@@ -49,7 +49,10 @@ ul.grid li.loading h4 {
 
 }
 .card {
-    background-color: aqua;
+    background-color: whitesmoke;
+    padding: 30px;
+    border-radius: 20px;
+   
 }
 
 

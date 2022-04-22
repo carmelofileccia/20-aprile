@@ -11,13 +11,26 @@ header {
 .flex section {
     flex-grow: 1 ;
 }
-
+a,
+a:visited {
+    color: blue;
+}
 aside ul,
 ul.grid {
     padding: 0;
 }
 aside ul li {
     list-style: none;
+}
+
+aside ul li a {
+    transition: all 1s linear;
+}
+
+aside ul li a.active {
+    list-style: none;
+    color: brown;
+    font-size: 20px;
 }
 
 ul.grid {

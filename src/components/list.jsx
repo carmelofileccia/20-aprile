@@ -38,14 +38,11 @@ export const List = (props) => {
     },[props.category]);
 
     useEffect(() => {
-        console.log('ho cercato', props.filtered)
-        const filteredSearch = source.filter((product) => {
-            return product.title.toLowerCase().includes (props.filtered)
-         
-        });
-        
-
-    }, [props.filtered]);
+        const filtered = source.filter((product) => 
+            product.title.toLowerCase().includes (props.search.toLowerCase())
+        );
+        setProducts(filtered);
+    }, [props.search]);
     
     return (
         <section>

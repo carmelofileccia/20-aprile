@@ -3,11 +3,11 @@ import {useState} from "react";
 export const Header = (props) => {
 const [search, setSearch] = useState("");
 
-const changing =(event, search) => {
-    setSearch(event.target.value);
-    console.log(search)
+const changing =(event) => {
+    const value = event.target.value;
+    setSearch(value);
+    props.searching (value);
 };
-props.filSelection(search)
     return (
         <header>
             <img src="" alt="React ecommerce" />

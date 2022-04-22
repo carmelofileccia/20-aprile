@@ -6,24 +6,24 @@ import './App.css';
 
 function App() {
   const [category, setCategory] = useState ("");
-  const [filtered, setFiltered]= useState("")
+  const [search, setSearch]= useState("")
 
   const catSelection =(value) => {
-    console.log(value);
+    // console.log(value);
     setCategory(value);
   }
 
-  const filSelection =(value) => {
-    console.log(value);
-    setFiltered(value);
+  const searching =(value) => {
+    // console.log(value);
+    setSearch(value);
 
   }
   return (
     <main>
-      <Header filSelection={filSelection}/>
+      <Header searching={searching}/>
       <div className="flex">
         <Sidebar catSelection={catSelection} />
-        <List category={category} filtered={filtered}/>
+        <List search={search} category={category}/>
       </div>
     </main>
   );

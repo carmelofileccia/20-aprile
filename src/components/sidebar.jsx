@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 const mock = ["category 1", "category 2", "category 3"];
 
 export const Sidebar = (props) => {
-
+    const [current, setCurrent] = useState ("");
     const [categories, setCategories] = useState(mock);
 
     const getData = async () => {
@@ -25,6 +25,7 @@ export const Sidebar = (props) => {
     const clicked =(event, category) =>{
         event.preventDefault();
         props.catSelection(category)
+        setCurrent(category);
     };
 
     return (
@@ -34,7 +35,7 @@ export const Sidebar = (props) => {
                 {/* <li> <a href="/everything"> Everything</a></li> */}
                 {categories.map((item, index) => (
                     <li key={index}> 
-                        <a href={item} onClick={(event) => clicked(event,item)}>{item}</a>
+                        <a href={item} className={item === current ? "active" : ""} onClick={(event) => clicked(event,item)}>{item}</a>
                     </li>
                 ))}
             </ul>
